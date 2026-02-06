@@ -42,12 +42,16 @@ function FAQItem({
   answer,
   isOpen,
   onClick,
+  index,
 }: {
   question: string;
   answer: string;
   isOpen: boolean;
   onClick: () => void;
+  index: number;
 }) {
+  const answerId = `faq-answer-${index}`;
+  
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -58,9 +62,11 @@ function FAQItem({
       <button
         onClick={onClick}
         className="w-full flex items-center justify-between p-6 text-left"
+        aria-expanded={isOpen}
+        aria-controls={answerId}
       >
         <span className="text-primary font-medium text-lg pr-4">{question}</span>
-        <div className="relative w-5 h-5 flex-shrink-0">
+        <div className="relative w-5 h-5 flex-shrink-0" aria-hidden="true">
           <motion.span
             animate={{ rotate: isOpen ? 0 : 0 }}
             className="absolute top-1/2 left-0 w-5 h-0.5 bg-primary -translate-y-1/2"
@@ -79,6 +85,9 @@ function FAQItem({
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
+            id={answerId}
+            role="region"
+            aria-labelledby={`faq-question-${index}`}
           >
             <div className="px-6 pb-6 text-secondary">{answer}</div>
           </motion.div>
@@ -103,6 +112,7 @@ export function FAQ() {
                 answer={faq.answer}
                 isOpen={openIndex === index}
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                index={index}
               />
             ))}
           </div>

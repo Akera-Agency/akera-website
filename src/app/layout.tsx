@@ -1,6 +1,35 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
+import { Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { Header, Footer } from "@/components";
+
+// Satoshi font from Fontshare (loaded locally)
+const satoshi = localFont({
+  src: [
+    {
+      path: "../fonts/Satoshi-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Satoshi-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-satoshi",
+  display: "swap",
+});
+
+// Instrument Serif from Google Fonts
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: "italic",
+  variable: "--font-instrument",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Akera Agency - Double Your Conversion Rate",
@@ -28,7 +57,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${satoshi.variable} ${instrumentSerif.variable}`}>
       <body className="font-satoshi antialiased">
         <Header />
         <main>{children}</main>

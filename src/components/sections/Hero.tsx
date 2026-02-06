@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Container, Button, Badge, StarIcon, Glow } from "@/components";
+import { CALENDLY_URL } from "@/lib/constants";
 
 export function Hero() {
   const words = ["Ready", "to", "double", "your", "website", "conversion?"];
@@ -85,7 +86,7 @@ export function Hero() {
             className="flex flex-col sm:flex-row gap-4"
           >
             <Button
-              href="https://calendly.com/chedly-ramez/30min"
+              href={CALENDLY_URL}
               external
               variant="primary"
             >

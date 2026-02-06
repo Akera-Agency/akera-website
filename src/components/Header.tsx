@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Logo } from "./Logo";
 import { Button } from "./Button";
 import { Container } from "./Container";
+import { CALENDLY_URL } from "@/lib/constants";
 
 const navLinks = [
   { href: "/#about-us", label: "About" },
@@ -42,7 +43,7 @@ export function Header() {
 
           <div className="hidden md:block">
             <Button
-              href="https://calendly.com/chedly-ramez/30min"
+              href={CALENDLY_URL}
               external
               variant="primary"
             >
@@ -55,6 +56,7 @@ export function Header() {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden p-2"
             aria-label="Toggle menu"
+            aria-expanded={mobileMenuOpen}
           >
             <div className="w-6 h-5 flex flex-col justify-between">
               <motion.span
@@ -94,7 +96,7 @@ export function Header() {
                   </a>
                 ))}
                 <Button
-                  href="https://calendly.com/chedly-ramez/30min"
+                  href={CALENDLY_URL}
                   external
                   variant="primary"
                   className="mt-2"

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Container, Section, Button, Glow } from "@/components";
+import { CALENDLY_URL } from "@/lib/constants";
 
 export function CTA() {
   return (
@@ -54,7 +55,7 @@ export function CTA() {
               transition={{ delay: 0.3 }}
             >
               <Button
-                href="https://calendly.com/chedly-ramez/30min"
+                href={CALENDLY_URL}
                 external
                 variant="primary"
               >

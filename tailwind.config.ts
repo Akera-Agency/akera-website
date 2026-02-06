@@ -18,8 +18,8 @@ const config: Config = {
         border: "rgba(255,255,255,0.1)",
       },
       fontFamily: {
-        satoshi: ["Satoshi", "sans-serif"],
-        instrument: ["Instrument Serif", "serif"],
+        satoshi: ["var(--font-satoshi)", "Satoshi", "sans-serif"],
+        instrument: ["var(--font-instrument)", "Instrument Serif", "serif"],
       },
       borderRadius: {
         DEFAULT: "12px",
@@ -29,6 +29,15 @@ const config: Config = {
         mobile: { max: "809px" },
         tablet: { min: "810px", max: "1199px" },
         desktop: { min: "1200px" },
+      },
+      keyframes: {
+        "fade-in-up": {
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+      },
+      animation: {
+        "fade-in-up": "fade-in-up 0.5s ease-out forwards",
       },
     },
   },

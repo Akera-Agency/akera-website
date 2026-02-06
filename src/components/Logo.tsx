@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 
 interface LogoProps {
@@ -9,13 +7,18 @@ interface LogoProps {
 
 export function Logo({ className = "", showText = true }: LogoProps) {
   return (
-    <Link href="/" className={`flex items-center gap-3 ${className}`}>
+    <Link 
+      href="/" 
+      className={`flex items-center gap-3 ${className}`}
+      aria-label="Akera Agency - Go to homepage"
+    >
       <svg
         width="44"
         height="44"
         viewBox="0 0 44 44"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
       >
         <path
           fillRule="evenodd"

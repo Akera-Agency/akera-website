@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Container, Section, Button } from "@/components";
+import { CALENDLY_URL } from "@/lib/constants";
 
 export function About() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -37,7 +38,7 @@ export function About() {
             className="mt-12"
           >
             <Button
-              href="https://calendly.com/chedly-ramez/30min"
+              href={CALENDLY_URL}
               external
               variant="primary"
             >
